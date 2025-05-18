@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'db.php';
 
-// Handle form submission for new messages
 $newMessageId = null;
 $toast = null;
 
@@ -24,10 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Get all messages from the database
 $result = $conn->query("SELECT id, name, message, created_at FROM messages ORDER BY id DESC");
 
-// Helper function to format timestamp
 function formatTimestamp($timestamp) {
     $datetime = new DateTime($timestamp);
     return $datetime->format('M j, g:i a');
