@@ -1,15 +1,17 @@
+
 <?php
-$host = 'db';
-$user = 'root';
-$pass = 'example';
-$db = 'guestbook';
+$servername = "db";
+$username = "root";
+$password = "example";
+$dbname = "guestbook";
 
-$conn = new mysqli($host, $user, $pass, $db);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
-
 // Create table if not exists
 $conn->query("CREATE TABLE IF NOT EXISTS messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
